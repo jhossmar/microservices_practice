@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
-@EnableFeignClients
+@EnableFeignClients   //this is to enable Feing pluging
 @SpringBootApplication
 public class DemoApplication {
 
