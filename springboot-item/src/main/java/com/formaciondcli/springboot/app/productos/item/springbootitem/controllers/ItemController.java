@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ItemController {
     
     @Autowired
-    @Qualifier("itemServiceFein")
-    //@Qualifier("itemServiceRestTempleate") //to change Rest Template
+    //@Qualifier("itemServiceFein")
+    @Qualifier("itemServiceRestTempleate") //to change Rest Template
     public ItemService itemService;
 
     @GetMapping("/listar")
