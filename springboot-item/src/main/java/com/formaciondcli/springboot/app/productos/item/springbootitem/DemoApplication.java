@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+
 @RibbonClient(name = "servicio-producto")
-@EnableFeignClients
+@EnableFeignClients 
 @SpringBootApplication
 public class DemoApplication {
 
