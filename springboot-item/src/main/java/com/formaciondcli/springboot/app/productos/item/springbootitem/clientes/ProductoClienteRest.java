@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "servicio-producto", url= "localhost:8001")
+@FeignClient(name = "servicio-producto")
 public interface ProductoClienteRest {
     @GetMapping("/listar")
     public List<Producto> listar();
