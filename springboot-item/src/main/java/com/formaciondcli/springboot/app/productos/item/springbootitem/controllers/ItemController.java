@@ -3,7 +3,9 @@ package com.formaciondcli.springboot.app.productos.item.springbootitem.controlle
 import java.util.List;
 
 import com.formaciondcli.springboot.app.productos.item.springbootitem.models.entity.Item;
+import com.formaciondcli.springboot.app.productos.item.springbootitem.models.entity.Producto;
 import com.formaciondcli.springboot.app.productos.item.springbootitem.models.service.ItemService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,9 +26,30 @@ public class ItemController {
         return itemService.findAll();        
     }
 
+    @HystrixCommand (fallbackMethod = "metodoAlternativo")
     @GetMapping("/ver/{id}/cantidad/{cantidad}")
     public Item detalle(@PathVariable Long id, @PathVariable Integer cantidad){
         return itemService.findById(id,cantidad);
+    }
+
+    /**
+     * 
+     * @param id
+     * @param cantidad
+     * @return   default item
+     * This function return a defaultItem when Producto-service doesn't work!
+     */
+    public Item metodoAlternativo(Long id, @PathVariable Integer cantidad){
+ 
+        Item item = new Item();
+        Producto producto = new Producto();
+        item.setCantidad(cantidad);
+        producto.setId(id);
+        producto.setNombre("Camara Sozy");
+        producto.setPrecio(500.00);
+        item.setProducto(producto);
+        return item;
+
     }
 
 }
