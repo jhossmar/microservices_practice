@@ -40,16 +40,16 @@ public class ProductControler {
         Producto producto = productoService.findById(id);
         // producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
         producto.setPort((int) port);
-        boolean ok = false;
+       // boolean ok = false;
         // if (ok== false){
         // throw new Exception("No se pudo carga el producto");
         // }
-        try {
-            Thread.sleep(2000L);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        // try {
+        //     Thread.sleep(2000L);
+        // } catch (InterruptedException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
 
         return producto;
     }
