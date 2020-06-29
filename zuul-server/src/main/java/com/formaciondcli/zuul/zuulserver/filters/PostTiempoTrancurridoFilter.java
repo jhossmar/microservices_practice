@@ -27,7 +27,7 @@ public class PostTiempoTrancurridoFilter extends ZuulFilter {
 		Long tiempofinal=System.currentTimeMillis();
 		Long tiempoTrancurrido=  tiempoInicio - tiempofinal;
 		
-		log.info(String.format("tiempo trancurrido en segundos %s seg", tiempoTrancurrido.doubleValue()/1000.00));
+		log.info(String.format("tiempo trancurrido en segundos %s seg", tiempoTrancurrido.doubleValue()/1000,00));
 		log.info(String.format("tiempo trancurrido en milisegundos %s milseg", tiempoTrancurrido.doubleValue()));
 		return true;
 	}
